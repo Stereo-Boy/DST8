@@ -127,12 +127,12 @@ stim.outFusFrameHeight=round(convertVA2px(stim.outFusFrameHeightVA));
 stim.outFusFrameEcc=round(convertVA2px(stim.outFusFrameEccVA));
 stim.dotSize=round(convertVA2px(stim.dotSizeVA));
 
-if stim.dotSize>20
-    dispi('Current dot size in px: ',stim.dotSize)
-    disp('dotSize cannot be above 20 because most hardwares do not support this')
-    precautions(scr.w, 'off'); 
-    error('Aborting (see message above): please remove that line to try anyway or decrease screen resolution')
-end
+% if stim.dotSize>20
+%     dispi('Current dot size in px: ',stim.dotSize)
+%     disp('dotSize cannot be above 20 because most hardwares do not support this')
+%     precautions(scr.w, 'off'); 
+%     error('Aborting (see message above): please remove that line to try anyway or decrease screen resolution')
+% end
 
 if scr.viewpixx==1
 %     %SPECIAL VIEWPIXX
@@ -149,7 +149,6 @@ end
 %--------------------------------------------------------------------------
 % TIMING (All times are in MILLISECONDS)
 %--------------------------------------------------------------------------
-% stim.mask1Duration                 = 5;
 stim.duration                  = 200;
 stim.itemDuration                  = 5000; 
 stim.interTrial                    = 200;   
@@ -182,22 +181,10 @@ expe.breakTime=10;%time after which there is a small break, in min
 expe.instrPosition=[0,300,400,1100];
 expe.escapeTimeLimit=10; %(min) nb of min after which escape key is deactivated
 
-   %paradigm
-      %  expe.nbPedestal = 3; %nb of condition, each corresponding to a different pedestal %
-      %  expe.pedestalMin = [0 -10 10]; % pedestal values in min %
-      %  expe.nbValues = 7; %nb of values of disparity to test
-       % expe.minDispSec=20; %minimal disparity to be tested in arcsec
-      %  expe.maxDispSec=3000; %maximal disparity to be tested in arcsec
-     %   expe.nbRepeatPart1=14; %MULTIPLE OF 2
-      %  expe.nbRepeatPart2=20; %MULTIPLE OF 2
-      %  if mod(expe.nbRepeatPart1,2)~=0; disp('Nb of repeats should be a multiple of 2!'); sca; xx; end
-      %   if mod(expe.nbRepeatPart2,2)~=0; disp('Nb of repeats should be a multiple of 2!'); sca; xx; end
-
 %fusion Test properties
 expe.fusionTestTrialNb1=10;  %nb of trials in diplopia test
 expe.fusionTestTrialNb2=15; %nb of trials in each condition of suppression test
 expe.fusionTestcircleNb1=3; %nb of circles in the fusion test with dots on each side
-%expe.fusionTestcircleNb2=4; %nb of circles in the fusion test with Gabors
 % ============================================
 %           Conversions in pixels
 % ============================================
@@ -211,18 +198,10 @@ expe.fusionTestcircleNb1=3; %nb of circles in the fusion test with dots on each 
             stim.vert.width= round(convertVA2px(stim.vert.widthVA));
             stim.vert.height= round(convertVA2px(stim.vert.heightVA));
             stim.frameLineWidth = round(convertVA2px(stim.frameLineWidthVA));
-%            stim.circleSize= round(convertVA2px(stim.circleSizeVA));
-%            stim.circleLineWidth= round(convertVA2px(stim.circleLineWidthMin/60));
             stim.outFusFrameWidth=round(convertVA2px(stim.outFusFrameWidthVA)); 
             stim.outFusFrameHeight=round(convertVA2px(stim.outFusFrameHeightVA)); 
             stim.outFusFrameEcc=round(convertVA2px(stim.outFusFrameEccVA));
-%            stim.dotSize=round(convertVA2px(stim.dotSizeVA));
-        %    expe.pedestal= round(convertVA2px(expe.pedestalMin/60));
-        %    expe.minDisp= convertVA2px(expe.minDispSec/3600);
-          %  expe.maxDisp= convertVA2px(expe.maxDispSec/3600);
             stim.dotSizeRange=round(convertVA2px(stim.dotSizeRangeVA));
-%             stim.apparentSize = 24;
-%             stim.apparentSizeVA = stim.apparentSize./scr.VA2pxConstant;
             stim.apparentSizeVA = 0.20; % = gaussian dot FWHM in va 
               stim.apparentSize = stim.apparentSizeVA.*scr.VA2pxConstant;
             if mod(stim.outFusFrameWidth,2)~=0; disp('stim.outFusFrameWidth should be a multiple of 2: we add 1 to it.');  stim.outFusFrameWidth = stim.outFusFrameWidth+1; end

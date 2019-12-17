@@ -76,25 +76,12 @@ cd([pathExp,filesep,'dataFiles'])
 
     %----- mode related stuff ---%
     if quickMode==2
-%        nameDST=input('Choose a new name for the DST file: ', 's');
-%         if exist(nameDST,'file')==2
-%             disp('This DST file already exists, please enter a different name.')
-%             disp('Exiting the program...')
-%             error('-------------------------------------------------')
-%         end
         nameDST = safeInputName(fullfile(pathExp,'dataFiles'));
-        language='en';
         DE=str2double(input('Non-amblyopic Eye (1 for Left; 2 for Right):  ', 's'));
-       % language=input('Language (fr for french; en for english):  ', 's');
-       % distFromScreen = str2double(input('Viewing distance in cm? (75 or 150):  ', 's'));
-       % distFromScreen= 150;
-       disp('Distance from screen should be 150 cm')
        input('Press a key to start')
     else
         nameDST='default';
         DE = 2;
-        language='en';
-        %distFromScreen = 150;
     end
     
     
@@ -131,23 +118,7 @@ cd([pathExp,filesep,'dataFiles'])
         scr.w=Screen('OpenWindow',scr.screenNumber, sc(scr.backgr,scr.box), [], 32, 2);
         precautions(scr.w, 'on');
     end
-    
-    % %--------------------------------------------------------------------------
-    % %   DISPLAY INSTRUCTIONS
-    % %--------------------------------------------------------------------------
-    %     displaystereotext3(scr,sc(scr.fontColor,scr.box),expe.instrPosition,expe.instructionsVergence.(language),1);
-    %     flip(inputMode, scr.w,[],0);
-    %     waitForKey(scr.keyboardNum,inputMode);
-    % %--------------------- WAIT  --------------------------------
-    
-    % %--------------------------------------------------------------------------
-    % %   Display block #
-    % %--------------------------------------------------------------------------
-    %     displaystereotext3(scr,sc(scr.fontColor,scr.box),expe.instrPosition,['Block ', num2str(block)],1);
-    %     flip(inputMode, scr.w,[],0);
-    %     waitForKey(scr.keyboardNum,inputMode);
-    % %--------------------- WAIT  --------------------------------
-    
+       
     %----- ROBOT MODE ------%
     %when in robot mode, make all timings very short
     if inputMode==2
@@ -182,10 +153,7 @@ cd([pathExp,filesep,'dataFiles'])
     %--------------------- INITIAL STEREOSCOPE MIRROR CALIBRATION DISPLAY(continues after keypress) --------------------------------
     displayStereoscopeCalibration(stim,scr,inputMode);
     waitForKey(scr.keyboardNum,inputMode);
-    %-----------------------------------------------------
-    
-    
-    
+    %-----------------------------------------------------  
     
     while abort == 1
         
@@ -201,10 +169,7 @@ cd([pathExp,filesep,'dataFiles'])
         [savedTrials,abort]=fusionTest(expe,scr,stim,sounds, inputMode, displayMode, calib);
     end
     
-%     expe.leftContr = calib.leftContr;   expe.rightContr = calib.rightContr;  expe.leftUpShift = calib.leftUpShift;
-%     expe.rightUpShift = calib.rightUpShift;  expe.leftLeftShift = calib.leftLeftShift;  expe.rightLeftShift = calib.rightLeftShift;  
-%     expe.flickering = calib.flickering;
-    
+   
 %later, most codes will load directly the following variables 
     leftContr = calib.leftContr;   rightContr = calib.rightContr;  leftUpShift = calib.leftUpShift;
     rightUpShift = calib.rightUpShift;  leftLeftShift = calib.leftLeftShift;  rightLeftShift = calib.rightLeftShift;  
@@ -215,8 +180,6 @@ cd([pathExp,filesep,'dataFiles'])
     
     %%------------------ Analyse ------------------%
     
-    %meanNbDotLE=mean(savedTrials(savedTrials(:,1)==2,2)); %average number of dots presented in LE
-    %meanNbDotRE=mean(savedTrials(savedTrials(:,1)==3,2));
     bino=savedTrials(savedTrials(:,1)==1,:);
     leftEye=savedTrials(savedTrials(:,1)==2,:);
     rightEye=savedTrials(savedTrials(:,1)==3,:);
@@ -224,8 +187,6 @@ cd([pathExp,filesep,'dataFiles'])
     diff=[savedTrials(:,1), savedTrials(:,3)-savedTrials(:,2)]; %savedTrials structure is: binoType, nbDots, response
     %[1: binocular, 2: left eye only; 3: right eye only]
     binoDiff=diff(diff(:,1)==1,:) ;
-    %leftEyeDiff=diff(diff(:,1)==2,:);
-    %rightEyeDiff=diff(diff(:,1)==3,:);
     
     figure(1);
     subplot(3,1,1);
@@ -317,9 +278,6 @@ catch err   %===== DEBUGING =====%
 end
 end
 
-
-
-% fprintf('Final thresholds (direct method)= (%5.3f) obtained in %d measures\n', [final_thres, total_stepI]');
 
 
 

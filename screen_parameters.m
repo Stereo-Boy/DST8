@@ -4,7 +4,8 @@ function [scr, box]=screen_parameters
 
 scr.W = 485;                % screen width in mm           
 scr.H = 300;                % screen heigth in mm
-scr.frameSep = 105;         % distance between the inner and outer stereoscope mirrors in mm
+scr.frameSep = 105;         % Best is to use the distance between the inner and outer stereoscope mirrors in mm
+                            % but if the frames bump into each other, it could be easily increased without any problem  
 scr.distFromScreen = 150;   % distance to the screen in cm (should be 150 cm) 
 scr.goalWidthRes = 1920;    % appropriate resolution (width in px) 
 scr.goalHeightRes = 1200;   % appropriate resolution (height in px) 

@@ -1,4 +1,4 @@
-function [expe,scr,stim,sounds]=globalParametersDST8(scr,box)
+function [expe,scr,stim,sounds]=globalParametersDST8(scr,boxi)
 %======================================================================
 %  Goal: control panel for the expriment parameters
 %======================================================================
@@ -17,7 +17,7 @@ rand('twister', sum(100*clock)); %rng('shuffle');
 Screen('Preference', 'SkipSyncTests', 0); %changed from 2
 screens=Screen('Screens');
 scr.screenNumber=max(screens);
-scr.box=box;
+scr.box=boxi;
 
         %check that we have the appropriate resolution
             scr.oldResolution=Screen('Resolution',scr.screenNumber);
@@ -127,9 +127,16 @@ stim.outFusFrameHeight=round(convertVA2px(stim.outFusFrameHeightVA));
 stim.outFusFrameEcc=round(convertVA2px(stim.outFusFrameEccVA));
 stim.dotSize=round(convertVA2px(stim.dotSizeVA));
 
+if stim.dotSize>20
+    dispi('Current dot size in px: ',stim.dotSize)
+    disp('dotSize cannot be above 20 because most hardwares do not support this')
+    precautions(scr.w, 'off'); 
+    error('Aborting (see message above): please remove that line to try anyway or decrease screen resolution')
+end
+
 if scr.viewpixx==1
 %     %SPECIAL VIEWPIXX
-    if Box==17
+    if scr.box==17
         Datapixx('Open');
         Datapixx('EnableVideoScanningBacklight');
         Datapixx('RegWrRd');
@@ -156,7 +163,7 @@ stim.minimalDuration                = 200;
 duration=0.2;
 freq1=1000;
 freq2=500;
-   freq3 = 2000;
+freq3 = 2000;
         sounds.success=soundDefine(duration,freq1);
         sounds.fail=soundDefine(duration,freq2);
         sounds.outFixation = soundDefine(duration,freq3);

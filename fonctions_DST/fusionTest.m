@@ -114,10 +114,10 @@ rightFrameL=[scr.LcenterXLine-stim.vert.width/2+stim.horiz.width/2,scr.LcenterYL
 rightFrameR=[scr.RcenterXLine-stim.vert.width/2+stim.horiz.width/2,scr.RcenterYLine-stim.vert.height/2-stim.horiz.height/2,scr.RcenterXLine+stim.horiz.width/2+stim.vert.width/2,scr.RcenterYLine+stim.vert.height/2+stim.horiz.height/2];
 
 
-horizframeL=Screen('MakeTexture',scr.w,sc(horizframeMatL,scr.box));
-vertframeL=Screen('MakeTexture',scr.w,sc(vertframeMatL,scr.box));
-horizframeR=Screen('MakeTexture',scr.w,sc(horizframeMatR,scr.box));
-vertframeR=Screen('MakeTexture',scr.w,sc(vertframeMatR,scr.box));
+% horizframeL=Screen('MakeTexture',scr.w,sc(horizframeMatL,scr.box));
+% vertframeL=Screen('MakeTexture',scr.w,sc(vertframeMatL,scr.box));
+% horizframeR=Screen('MakeTexture',scr.w,sc(horizframeMatR,scr.box));
+% vertframeR=Screen('MakeTexture',scr.w,sc(vertframeMatR,scr.box));
 
 %---frame duration
 %frameDurationSec=scr.frameTime;
@@ -269,7 +269,7 @@ for myTrial=1:size(CRlist,1)
 
     if inputMode==1
       
-     % play(sounds.success.obj)
+      play(sounds.success.obj)
       
     end
     %--------------------------------------------------------------------------

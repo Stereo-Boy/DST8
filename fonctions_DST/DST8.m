@@ -1,4 +1,4 @@
-function DST8(initialParam)
+function DST8(param)
 %------------------------------------------------------------------------
 %   This code (2019) is a simple modification of previous version.
 %   The differences are:
@@ -40,7 +40,7 @@ try
     disp(['Adding fonctions_MATLAB from Berkeley Drive on top too: ',genpath(fullfile(rootpath,'fonctions_MATLAB'))])
     path(genpath(fullfile(rootpath,'fonctions_MATLAB')), path);
       
-    if ~exist('initialParam', 'var')
+    if ~exist('param', 'var')
         polarity = 4; %1 : standard with grey background, 2: white on black background, 3: black on white background
         %4: half half
     end
@@ -48,7 +48,7 @@ try
     %==========================================================================
     %                           QUICK PARAMETERS
     %==========================================================================
-if ~exist('initialParam', 'var')   
+if ~exist('param', 'var')   
     %===================== INPUT MODE ==============================
     %1: User  ; 2: Robot
     %The robot mode allows to test the experiment with no user awaitings
@@ -66,10 +66,10 @@ if ~exist('initialParam', 'var')
     %===============================================================
 else
     disp('Use wrapper parameters');
-    inputMode=initialParam.inputMode;
-    quickMode=initialParam.quickMode;
-    displayMode=initialParam.displayMode;
-    polarity = initialParam.polarity;
+    inputMode=param.inputMode;
+    quickMode=param.quickMode;
+    displayMode=param.displayMode;
+    polarity = param.polarity;
 end
 
 cd([pathExp,filesep,'dataFiles'])
@@ -113,7 +113,7 @@ cd([pathExp,filesep,'dataFiles'])
         %--------------------------------------------------------------------------
         %LOAD EXPERIMENTAL PARAMETERS FROM A SEPARATE FILE
         %--------------------------------------------------------------------------
-        [expe,scr,stim,sounds]=globalParametersDST8(0,param.scr,param.box);
+        [expe,scr,stim,sounds]=globalParametersDST8(param.scr,param.box);
         if exist('parameters','var')
             %special parameters to change after loading
             disp parameters
@@ -305,9 +305,9 @@ catch err   %===== DEBUGING =====%
         save(fullfile(pathExp,'log',[nameDST,'-crashlog']))
         saveAll(fullfile(pathExp,'log',[nameDST,'-crashlog.mat']),fullfile(pathExp,'log',[nameDST,'-crashlog.txt']))
         warnings
-        changeResolution(scr.screenNumber, scr.oldResolution.width, scr.oldResolution.height, scr.oldResolution.hz);
         diary OFF
-        if exist('scr','var'); precautions(scr.w, 'off'); end
+        
+        if exist('scr','var');     changeResolution(scr.screenNumber, scr.oldResolution.width, scr.oldResolution.height, scr.oldResolution.hz);precautions(scr.w, 'off');  end
          rethrow(err);
     catch err2
         disp(err2)

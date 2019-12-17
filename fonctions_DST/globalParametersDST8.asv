@@ -1,4 +1,4 @@
-function [expe,scr,stim,sounds]=globalParametersDST8(scr,box)
+function [expe,scr,stim,sounds]=globalParametersDST8(scr,boxi)
 %======================================================================
 %  Goal: control panel for the expriment parameters
 %======================================================================
@@ -17,7 +17,7 @@ rand('twister', sum(100*clock)); %rng('shuffle');
 Screen('Preference', 'SkipSyncTests', 0); %changed from 2
 screens=Screen('Screens');
 scr.screenNumber=max(screens);
-scr.box=box;
+scr.box=boxi;
 
         %check that we have the appropriate resolution
             scr.oldResolution=Screen('Resolution',scr.screenNumber);
@@ -127,30 +127,30 @@ stim.outFusFrameHeight=round(convertVA2px(stim.outFusFrameHeightVA));
 stim.outFusFrameEcc=round(convertVA2px(stim.outFusFrameEccVA));
 stim.dotSize=round(convertVA2px(stim.dotSizeVA));
 
+if stim.dotSize>20
+    
+end
+
 if scr.viewpixx==1
 %     %SPECIAL VIEWPIXX
-%     if Box==17
-%         Datapixx('Open');
-%         Datapixx('EnableVideoScanningBacklight');
-%         Datapixx('RegWrRd');
-%         status = Datapixx('GetVideoStatus');
-%         fprintf('Scanning Backling mode on = %d\n', status.scanningBacklight);
-%         Datapixx('Close');
-%     end
+    if scr.box==17
+        Datapixx('Open');
+        Datapixx('EnableVideoScanningBacklight');
+        Datapixx('RegWrRd');
+        status = Datapixx('GetVideoStatus');
+        fprintf('Scanning Backling mode on = %d\n', status.scanningBacklight);
+        Datapixx('Close');
+    end
+end
+
 %--------------------------------------------------------------------------
 % TIMING (All times are in MILLISECONDS)
 %--------------------------------------------------------------------------
 % stim.mask1Duration                 = 5;
 stim.duration                  = 200;
 stim.itemDuration                  = 5000; 
-     %   stim.mask2Duration                 = 0;
-        %stim.responseTrial                = 2000; %not used
-        stim.interTrial                    = 200;   
-      %  stim.frameTime                      = scr.frameTime  ; %to get time for all drawings, only draw one every 3 frames
-        stim.minimalDuration                = 200; 
-% stim.mask2Duration                 = 0;
-%stim.responseTrial                = 2000; %not used
-% stim.interTrial                    = 200;
+stim.interTrial                    = 200;   
+stim.minimalDuration                = 200; 
 
 %--------------------------------------------------------------------------
 

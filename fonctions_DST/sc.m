@@ -24,7 +24,7 @@ function sortie=sc(lum,box)
     %   21  Levi Lab Screen, Berkeley, NEC SuperBright Diamondtron MultiSync FP2141SB screen in Levi Lab (room 487 -eye tracker spot)
     %   23  additional screen to laptop Latitude E3660 Argent
     %   24  Screen parameter Box2 ViewPixx1
-if ~exist('box','var');box=16;end %default box
+if ~exist('box','var');box=16; warning('Luminance calibration not defined - using default values');end %default box
 
 %-----------------------------------------------------------------------
 %   Newest box Value

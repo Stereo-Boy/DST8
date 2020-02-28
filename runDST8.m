@@ -13,6 +13,7 @@ function runDST8
  
        [pathExp,~]=fileparts(mfilename('fullpath'));
        addpath(fullfile(pathExp,'fonctions_DST'))
+       addpath(fullfile(pathExp,'screen'))
        
        [param.scr, param.box]=screen_parameters;
        DST8(param);

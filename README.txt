@@ -1,5 +1,6 @@
 
-Before starting, please replace the values in screen_parameters.m with your actual screen values.
+Before starting, please replace the values in screen/screen_parameters.m with your actual screen values.
+Once done, please do a copy of that file to keep, so that after each github pull, you can retrieve your parameter values.
 
 If any error, open the appropriately dated log file in the log folder to see the error and comments.
 
@@ -9,5 +10,5 @@ Error in function DrawDots: 	Usage error
 Unsupported point size requested in Screen('DrawDots')."
 
 This means that your graphic card can only support dots of a smaller size (in pixels) using the DrawDots function.
-The appropriate solution is to decrease the screen resolution so that the number of dots is smaller.
+The appropriate solution is to decrease the screen resolution so that the point size is smaller.
 

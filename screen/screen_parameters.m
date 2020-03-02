@@ -12,4 +12,4 @@ scr.goalHeightRes = 1080;   % appropriate resolution (height in px)
 scr.goalRefreshRate = 60;  % appropriate refresh rate
 box= [0.00000033, 3.4275];      % gamma parameters for screen luminance calibration;  
                             % Function shape is: output(0-255) = (luminance./box(1)).^(1/box(2));
-scr.viewpixx = 1;           % if this is a viewpixx screen (1) or not (0)
+scr.viewpixx = 0;           % if this is a viewpixx screen (1) or not (0)

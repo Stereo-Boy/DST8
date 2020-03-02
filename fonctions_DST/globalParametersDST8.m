@@ -29,7 +29,7 @@ scr.box=boxi;
             scr.res=Screen('Rect', scr.screenNumber); %screen size in pixel, format: [0 0 maxHoriz maxVert]
 %check if vertical and horizontal pixel sizes are the same
 scr.ppBymm= scr.res(3)/scr.W;
-if abs((scr.res(3)/scr.W)-(scr.res(4)/scr.H))>0.01; warning('Ratio error >1%: change the screen resolution to have equal pixel sizes.');end
+if abs((scr.res(3)/scr.W)-(scr.res(4)/scr.H))>0.05; warning('Ratio error >5%: change the screen resolution to have equal pixel sizes.');end
 scr.VA2pxConstant=scr.ppBymm *10*VA2cm(1,scr.distFromScreen); %constant by which we multiply a value in VA to get a value in px
 scr.backgr=40; %in cd/m2
 scr.bg = scr.backgr; %copy
@@ -54,13 +54,13 @@ scr.centerY=round(scr.centerY);
 scr.midPt=scr.centerX;
 
 %Centers for Drawline
-scr.LcenterXLine=round(scr.centerX-scr.stereoDeviation); %stereo position of left eye center
-scr.RcenterXLine=round(scr.centerX+scr.stereoDeviation); %stereo position of right eye center
-scr.centerYLine=round(scr.centerY); %stereo position of left eye center
+scr.LcenterXLine=ceil(scr.centerX-scr.stereoDeviation); %stereo position of left eye center
+scr.RcenterXLine=ceil(scr.centerX+scr.stereoDeviation); %stereo position of right eye center
+scr.centerYLine=ceil(scr.centerY); %stereo position of left eye center
 %Centers for Drawdots
-scr.LcenterXDot=round(scr.centerX-scr.stereoDeviation)-1; %stereo position of left eye center
-scr.RcenterXDot=round(scr.centerX+scr.stereoDeviation)-1; %stereo position of right eye center
-scr.centerYDot=round(scr.centerY)+1; %stereo position of left eye center
+scr.LcenterXDot=ceil(scr.centerX-scr.stereoDeviation)-1; %stereo position of left eye center
+scr.RcenterXDot=ceil(scr.centerX+scr.stereoDeviation)-1; %stereo position of right eye center
+scr.centerYDot=ceil(scr.centerY)+1; %stereo position of left eye center
 %--------------------------------------------------------------------------
 
 %======================================================================
@@ -80,15 +80,15 @@ stim.outFusFrameEccVA=0.9;
     
 %Outside frame properties (outer box)
 stim.frameLineWidthVA=0.2; %line width of the frames in VA
-stim.frameWidthVA=9; %witdth of the outside frame in deg
-stim.frameHeightVA=9; %in deg  
+stim.frameWidthVA=7.1; %witdth of the outside frame in deg
+stim.frameHeightVA=8; %in deg  
 stim.frameContrast=0.96;
 stim.framePhase=pi;
 
-if scr.distFromScreen==150
-    stim.frameWidthVA=7;
-    stim.frameHeightVA=7;
-end
+% if scr.distFromScreen==150
+%     stim.frameWidthVA=7;
+%     stim.frameHeightVA=7;
+% end
     
 stim.horiz.widthVA=stim.frameWidthVA; stim.horiz.heightVA=stim.frameLineWidthVA; stim.horiz.averageL=scr.backgr;
 stim.horiz.contrast=stim.frameContrast; stim.horiz.tilt=90;  stim.horiz.spatialFrequencyDeg=0.4;
@@ -106,9 +106,10 @@ stim.minLum = 0; %used to determine ink for writing too, among others
 stim.circleSizeVA=0.6;       %diameter in degVA
 stim.circleLineWidthMin=4; %line width for circles, in arcmin
 stim.dotSizeVA=0.25; %diameter in degVA
-stim.dotSizeRangeVA= [0.15 0.4]; %TO DO - dot sizes are uniformly picked between min and max sizes in deg VA
-stim.dotDensity= 25; % in %
-stim.coherence = 0; %in %
+%stim.apparentSizeVA = 0.20; % = gaussian dot FWHM in va
+%stim.dotSizeRangeVA= [0.15 0.4]; %TO DO - dot sizes are uniformly picked between min and max sizes in deg VA
+%stim.dotDensity= 25; % in %
+%stim.coherence = 0; %in %
 
 %Conversions in pixels
 stim.fixationLength=round(convertVA2px(stim.fixationLengthMin/60));
@@ -125,7 +126,8 @@ stim.circleLineWidth= round(convertVA2px(stim.circleLineWidthMin/60));
 stim.outFusFrameWidth=round(convertVA2px(stim.outFusFrameWidthVA));
 stim.outFusFrameHeight=round(convertVA2px(stim.outFusFrameHeightVA));
 stim.outFusFrameEcc=round(convertVA2px(stim.outFusFrameEccVA));
-stim.dotSize=round(convertVA2px(stim.dotSizeVA));
+%stim.dotSize=round(convertVA2px(stim.dotSizeVA));
+if mod(stim.outFusFrameWidth,2)~=0; disp('stim.outFusFrameWidth should be a multiple of 2: we add 1 to it.');  stim.outFusFrameWidth = stim.outFusFrameWidth+1; end
 
 % if stim.dotSize>20
 %     dispi('Current dot size in px: ',stim.dotSize)
@@ -149,10 +151,10 @@ end
 %--------------------------------------------------------------------------
 % TIMING (All times are in MILLISECONDS)
 %--------------------------------------------------------------------------
-stim.duration                  = 200;
-stim.itemDuration                  = 5000; 
-stim.interTrial                    = 200;   
-stim.minimalDuration                = 200; 
+% stim.duration                  = 200;
+% stim.itemDuration                  = 5000; 
+% stim.interTrial                    = 200;   
+% stim.minimalDuration                = 200; 
 
 %--------------------------------------------------------------------------
 
@@ -188,24 +190,21 @@ expe.fusionTestcircleNb1=3; %nb of circles in the fusion test with dots on each 
 % ============================================
 %           Conversions in pixels
 % ============================================
+% stim.fixationLength=round(convertVA2px(stim.fixationLengthMin/60));
+% stim.fixationLineWidth=round(convertVA2px(stim.fixationLineWidthMin/60));
+% stim.fixationOffset=round(convertVA2px(stim.fixationOffsetMin/60));
+% stim.fixationDotSize=round(convertVA2px(stim.fixationDotSizeMin/60));
+% stim.horiz.width=round(convertVA2px(stim.horiz.widthVA));
+% stim.horiz.height=round(convertVA2px(stim.horiz.heightVA));
+% stim.vert.width= round(convertVA2px(stim.vert.widthVA));
+% stim.vert.height= round(convertVA2px(stim.vert.heightVA));
+% stim.frameLineWidth = round(convertVA2px(stim.frameLineWidthVA));
+% stim.outFusFrameWidth=round(convertVA2px(stim.outFusFrameWidthVA));
+% stim.outFusFrameHeight=round(convertVA2px(stim.outFusFrameHeightVA));
+% stim.outFusFrameEcc=round(convertVA2px(stim.outFusFrameEccVA));
+% stim.dotSizeRange=round(convertVA2px(stim.dotSizeRangeVA));
+% stim.apparentSize = stim.apparentSizeVA.*scr.VA2pxConstant;
 
-            stim.fixationLength=round(convertVA2px(stim.fixationLengthMin/60)); 
-            stim.fixationLineWidth=round(convertVA2px(stim.fixationLineWidthMin/60));
-            stim.fixationOffset=round(convertVA2px(stim.fixationOffsetMin/60));
-            stim.fixationDotSize=round(convertVA2px(stim.fixationDotSizeMin/60));
-            stim.horiz.width=round(convertVA2px(stim.horiz.widthVA));
-            stim.horiz.height=round(convertVA2px(stim.horiz.heightVA));
-            stim.vert.width= round(convertVA2px(stim.vert.widthVA));
-            stim.vert.height= round(convertVA2px(stim.vert.heightVA));
-            stim.frameLineWidth = round(convertVA2px(stim.frameLineWidthVA));
-            stim.outFusFrameWidth=round(convertVA2px(stim.outFusFrameWidthVA)); 
-            stim.outFusFrameHeight=round(convertVA2px(stim.outFusFrameHeightVA)); 
-            stim.outFusFrameEcc=round(convertVA2px(stim.outFusFrameEccVA));
-            stim.dotSizeRange=round(convertVA2px(stim.dotSizeRangeVA));
-            stim.apparentSizeVA = 0.20; % = gaussian dot FWHM in va 
-              stim.apparentSize = stim.apparentSizeVA.*scr.VA2pxConstant;
-            if mod(stim.outFusFrameWidth,2)~=0; disp('stim.outFusFrameWidth should be a multiple of 2: we add 1 to it.');  stim.outFusFrameWidth = stim.outFusFrameWidth+1; end
-            
 expe.breaktime.fr=strcat('Vous pouvez prendre une courte pause. Appuyez sur une touche pour continuer.');
 expe.breaktime.en=strcat('You can take a short break. Press a key to continue.');
 expe.thx.fr='===========  MERCI  ===========';
@@ -220,8 +219,5 @@ precautions(scr.w, 'on');
     function px=convertVA2px(VA)
         px=round(scr.ppBymm *10*VA2cm(VA,scr.distFromScreen));
         %correct for when subpixel value is obtained
-        if px==0
-            px=ceil(scr.ppBymm *10*VA2cm(VA,scr.distFromScreen));
-        end
     end
 end

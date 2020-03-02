@@ -2,6 +2,9 @@
 Before starting, please replace the values in screen/screen_parameters.m with your actual screen values.
 Once done, please do a copy of that file to keep, so that after each github pull, you can retrieve your parameter values.
 
+The function needs the Psychtoolbox and the programs required to run that toolbox (e.g. gstreamer), see on
+ http://psychtoolbox.org/download.html
+
 If any error, open the appropriately dated log file in the log folder to see the error and comments.
 
 Troubleshooting:

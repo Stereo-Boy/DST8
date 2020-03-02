@@ -97,21 +97,21 @@ scr.RcenterYDot = scr.centerYDot - calib.rightUpShift;
 %---- frames
 stim.horiz.contrast=calib.leftContr;
 stim.vert.contrast=calib.leftContr;
-horizframeMatL=ultimateGabor(scr.VA2pxConstant, stim.horiz);
-vertframeMatL=ultimateGabor(scr.VA2pxConstant, stim.vert);
+%horizframeMatL=ultimateGabor(scr.VA2pxConstant, stim.horiz);
+%vertframeMatL=ultimateGabor(scr.VA2pxConstant, stim.vert);
 stim.horiz.contrast=calib.rightContr;
 stim.vert.contrast=calib.rightContr;
-horizframeMatR=ultimateGabor(scr.VA2pxConstant, stim.horiz);
-vertframeMatR=ultimateGabor(scr.VA2pxConstant, stim.vert);
-
-topFrameCoordL=[scr.LcenterXLine-stim.horiz.width/2,scr.LcenterYLine-stim.horiz.height/2-stim.vert.height/2,scr.LcenterXLine+stim.horiz.width/2,scr.LcenterYLine+stim.horiz.height/2-stim.vert.height/2];
-topFrameCoordR=[scr.RcenterXLine-stim.horiz.width/2,scr.RcenterYLine-stim.horiz.height/2-stim.vert.height/2,scr.RcenterXLine+stim.horiz.width/2,scr.RcenterYLine+stim.horiz.height/2-stim.vert.height/2];
-bottomFrameCoordL=[scr.LcenterXLine-stim.horiz.width/2,scr.LcenterYLine-stim.horiz.height/2+stim.vert.height/2,scr.LcenterXLine+stim.horiz.width/2,scr.LcenterYLine+stim.horiz.height/2+stim.vert.height/2];
-bottomFrameCoordR=[scr.RcenterXLine-stim.horiz.width/2,scr.RcenterYLine-stim.horiz.height/2+stim.vert.height/2,scr.RcenterXLine+stim.horiz.width/2,scr.RcenterYLine+stim.horiz.height/2+stim.vert.height/2];
-leftFrameL=[scr.LcenterXLine-stim.vert.width/2-stim.horiz.width/2,scr.LcenterYLine-stim.vert.height/2-stim.horiz.height/2,scr.LcenterXLine-stim.horiz.width/2+stim.vert.width/2,scr.LcenterYLine+stim.vert.height/2+stim.horiz.height/2];
-leftFrameR=[scr.RcenterXLine-stim.vert.width/2-stim.horiz.width/2,scr.RcenterYLine-stim.vert.height/2-stim.horiz.height/2,scr.RcenterXLine-stim.horiz.width/2+stim.vert.width/2,scr.RcenterYLine+stim.vert.height/2+stim.horiz.height/2];
-rightFrameL=[scr.LcenterXLine-stim.vert.width/2+stim.horiz.width/2,scr.LcenterYLine-stim.vert.height/2-stim.horiz.height/2,scr.LcenterXLine+stim.horiz.width/2+stim.vert.width/2,scr.LcenterYLine+stim.vert.height/2+stim.horiz.height/2];
-rightFrameR=[scr.RcenterXLine-stim.vert.width/2+stim.horiz.width/2,scr.RcenterYLine-stim.vert.height/2-stim.horiz.height/2,scr.RcenterXLine+stim.horiz.width/2+stim.vert.width/2,scr.RcenterYLine+stim.vert.height/2+stim.horiz.height/2];
+% horizframeMatR=ultimateGabor(scr.VA2pxConstant, stim.horiz);
+% vertframeMatR=ultimateGabor(scr.VA2pxConstant, stim.vert);
+% 
+% topFrameCoordL=[scr.LcenterXLine-stim.horiz.width/2,scr.LcenterYLine-stim.horiz.height/2-stim.vert.height/2,scr.LcenterXLine+stim.horiz.width/2,scr.LcenterYLine+stim.horiz.height/2-stim.vert.height/2];
+% topFrameCoordR=[scr.RcenterXLine-stim.horiz.width/2,scr.RcenterYLine-stim.horiz.height/2-stim.vert.height/2,scr.RcenterXLine+stim.horiz.width/2,scr.RcenterYLine+stim.horiz.height/2-stim.vert.height/2];
+% bottomFrameCoordL=[scr.LcenterXLine-stim.horiz.width/2,scr.LcenterYLine-stim.horiz.height/2+stim.vert.height/2,scr.LcenterXLine+stim.horiz.width/2,scr.LcenterYLine+stim.horiz.height/2+stim.vert.height/2];
+% bottomFrameCoordR=[scr.RcenterXLine-stim.horiz.width/2,scr.RcenterYLine-stim.horiz.height/2+stim.vert.height/2,scr.RcenterXLine+stim.horiz.width/2,scr.RcenterYLine+stim.horiz.height/2+stim.vert.height/2];
+% leftFrameL=[scr.LcenterXLine-stim.vert.width/2-stim.horiz.width/2,scr.LcenterYLine-stim.vert.height/2-stim.horiz.height/2,scr.LcenterXLine-stim.horiz.width/2+stim.vert.width/2,scr.LcenterYLine+stim.vert.height/2+stim.horiz.height/2];
+% leftFrameR=[scr.RcenterXLine-stim.vert.width/2-stim.horiz.width/2,scr.RcenterYLine-stim.vert.height/2-stim.horiz.height/2,scr.RcenterXLine-stim.horiz.width/2+stim.vert.width/2,scr.RcenterYLine+stim.vert.height/2+stim.horiz.height/2];
+% rightFrameL=[scr.LcenterXLine-stim.vert.width/2+stim.horiz.width/2,scr.LcenterYLine-stim.vert.height/2-stim.horiz.height/2,scr.LcenterXLine+stim.horiz.width/2+stim.vert.width/2,scr.LcenterYLine+stim.vert.height/2+stim.horiz.height/2];
+% rightFrameR=[scr.RcenterXLine-stim.vert.width/2+stim.horiz.width/2,scr.RcenterYLine-stim.vert.height/2-stim.horiz.height/2,scr.RcenterXLine+stim.horiz.width/2+stim.vert.width/2,scr.RcenterYLine+stim.vert.height/2+stim.horiz.height/2];
 
 
 % horizframeL=Screen('MakeTexture',scr.w,sc(horizframeMatL,scr.box));

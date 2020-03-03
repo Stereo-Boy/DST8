@@ -1,4 +1,4 @@
-function [expe,scr,stim,sounds]=globalParametersDST8(scr,boxi)
+function [expe,scr,stim,sounds]=globalParametersDST8(scr,gamma)
 %======================================================================
 %  Goal: control panel for the expriment parameters
 %======================================================================
@@ -14,10 +14,10 @@ rand('twister', sum(100*clock)); %rng('shuffle');
 %              WINDOW-SCREEN PARAMETERS
 %======================================================================
 
-Screen('Preference', 'SkipSyncTests', 0); %changed from 2
+Screen('Preference', 'SkipSyncTests', 2); %HERE should be 0
 screens=Screen('Screens');
 scr.screenNumber=max(screens);
-scr.box=boxi;
+scr.box=gamma;
 
         %check that we have the appropriate resolution
             scr.oldResolution=Screen('Resolution',scr.screenNumber);
@@ -46,6 +46,7 @@ Screen('BlendFunction', scr.w, GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 %for DrawDots
 scr.centerX = scr.res(3)/2;
 scr.centerY = scr.res(4)/2;
+scr.frameSep = scr.W/4;
 scr.stereoDeviation = scr.ppBymm.*scr.frameSep; %nb of px necessary to add from screen center in order to put a stim a zero disp
 
 scr.LcenterX=round(scr.centerX-scr.stereoDeviation);
@@ -84,12 +85,7 @@ stim.frameWidthVA=7.1; %witdth of the outside frame in deg
 stim.frameHeightVA=8; %in deg  
 stim.frameContrast=0.96;
 stim.framePhase=pi;
-
-% if scr.distFromScreen==150
-%     stim.frameWidthVA=7;
-%     stim.frameHeightVA=7;
-% end
-    
+   
 stim.horiz.widthVA=stim.frameWidthVA; stim.horiz.heightVA=stim.frameLineWidthVA; stim.horiz.averageL=scr.backgr;
 stim.horiz.contrast=stim.frameContrast; stim.horiz.tilt=90;  stim.horiz.spatialFrequencyDeg=0.4;
 stim.horiz.phase=stim.framePhase; stim.horiz.FWHM = 100;
@@ -126,15 +122,8 @@ stim.circleLineWidth= round(convertVA2px(stim.circleLineWidthMin/60));
 stim.outFusFrameWidth=round(convertVA2px(stim.outFusFrameWidthVA));
 stim.outFusFrameHeight=round(convertVA2px(stim.outFusFrameHeightVA));
 stim.outFusFrameEcc=round(convertVA2px(stim.outFusFrameEccVA));
-%stim.dotSize=round(convertVA2px(stim.dotSizeVA));
+stim.dotSize=round(convertVA2px(stim.dotSizeVA));
 if mod(stim.outFusFrameWidth,2)~=0; disp('stim.outFusFrameWidth should be a multiple of 2: we add 1 to it.');  stim.outFusFrameWidth = stim.outFusFrameWidth+1; end
-
-% if stim.dotSize>20
-%     dispi('Current dot size in px: ',stim.dotSize)
-%     disp('dotSize cannot be above 20 because most hardwares do not support this')
-%     precautions(scr.w, 'off'); 
-%     error('Aborting (see message above): please remove that line to try anyway or decrease screen resolution')
-% end
 
 if scr.viewpixx==1
 %     %SPECIAL VIEWPIXX
@@ -151,10 +140,10 @@ end
 %--------------------------------------------------------------------------
 % TIMING (All times are in MILLISECONDS)
 %--------------------------------------------------------------------------
-% stim.duration                  = 200;
-% stim.itemDuration                  = 5000; 
-% stim.interTrial                    = 200;   
-% stim.minimalDuration                = 200; 
+stim.duration                  = 200;
+stim.itemDuration                  = 5000; 
+stim.interTrial                    = 200;   
+stim.minimalDuration                = 200; 
 
 %--------------------------------------------------------------------------
 
@@ -218,6 +207,5 @@ precautions(scr.w, 'on');
 
     function px=convertVA2px(VA)
         px=round(scr.ppBymm *10*VA2cm(VA,scr.distFromScreen));
-        %correct for when subpixel value is obtained
     end
 end

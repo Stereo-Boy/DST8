@@ -22,7 +22,7 @@ function displayStereoscopeCalibration(stim,scr,inputMode)
     rightFrameR=[RcenterXLine-stim.vert.width/2+stim.horiz.width/2,RcenterYLine-stim.vert.height/2-stim.horiz.height/2,RcenterXLine+stim.horiz.width/2+stim.vert.width/2,RcenterYLine+stim.vert.height/2+stim.horiz.height/2];
     
 
-    red = [20 0 0]; green = [0 20 0];
+    red = [200 0 0]; green = [0 200 0];
     
     horizframeL=Screen('MakeTexture',scr.w,sc(horizframeMatL,scr.box));
     vertframeL=Screen('MakeTexture',scr.w,sc(vertframeMatL,scr.box));
@@ -33,5 +33,5 @@ function displayStereoscopeCalibration(stim,scr,inputMode)
     
     Screen('DrawTextures',scr.w,[horizframeL,horizframeR,horizframeL,horizframeR,vertframeL,vertframeR,vertframeL,vertframeR],[],[topFrameCoordL',topFrameCoordR',bottomFrameCoordL',bottomFrameCoordR',leftFrameL',leftFrameR',rightFrameL',rightFrameR'])
      Screen('DrawLines',scr.w, [LcenterXLine,LcenterXLine,RcenterXLine,RcenterXLine;0,scr.res(4),0,scr.res(4)],...
-        stim.fixationDotSize/4, sc([red',red',green',green']));
+        stim.fixationDotSize/4, ([red',red',green',green']));
     flip2(inputMode, scr.w);

@@ -1,8 +1,7 @@
-All data saved at: Date and Time:	15/11/2018	14:29: 8
-Box : 20 
+All data saved at: Date and Time:	 3/ 3/2020	15:46:50
 DE : 1 
-LcenterX : 544 
-RcenterX : 1376 
+LcenterX : 480 
+RcenterX : 1440 
 TextTable : 
       fig1 = 
            subfig1 = 
@@ -24,7 +23,7 @@ TextTable :
 abort : 0 
 alreadyStarted : 0 
 ans : 20 
-bino : [1 0 0;1 0 0;1 2 2;1 0 0;1 2 2;1 1 1;1 1 1;1 2 2;1 0 0;1 1 1;1 2 2;1 0 0;1 1 1;1 2 2;1 2 2;1 2 2;1 0 0;1 2 2;1 0 0;1 1 1;1 1 1;1 1 1;1 1 1;1 2 2;1 1 1;1 0 0;1 1 1;1 0 0;1 2 2;1 0 0] 
+bino : [1 1 1;1 2 2;1 0 0;1 2 2;1 1 1;1 0 0;1 1 1;1 1 1;1 2 2;1 1 1;1 2 2;1 1 1;1 1 1;1 1 1;1 2 2;1 2 2;1 0 0;1 0 0;1 0 0;1 1 1;1 2 2;1 0 0;1 0 0;1 2 2;1 0 0;1 2 2;1 1 1;1 0 0;1 2 2;1 0 0] 
 binoDiff : [1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0] 
 calib : 
       leftContr = 0.96
@@ -36,15 +35,14 @@ calib :
       flickering = 0
       leftContrNum = 3.17805383034794
       rightContrNum = 3.17805383034794 
-centerY : 600 
-diff : [1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;2 0;2 0;3 0;3 0;3 0;2 0;3 0;2 0;2 0;3 0;2 0;2 0;2 0;3 0;2 0;3 0;3 0;2 0;2 0;3 0;3 0;2 0;2 0;2 0;3 0;2 0;2 -1;3 0;3 0;2 0;3 0;2 0;3 0;2 0;3 0;3 0;2 0;3 0;3 0;3 0;3 0;2 0;2 0;2 0;3 0;2 0;2 0;3 0;3 0;2 0;3 0;3 0;2 0;3 0;2 0;2 0;3 0;3 0;3 0;2 0] 
+centerY : 540 
+diff : [1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;1 0;2 0;2 0;3 0;3 0;3 0;2 0;3 0;3 0;3 0;3 0;2 0;2 0;3 0;2 0;2 0;3 0;3 0;2 0;3 0;3 0;3 0;2 0;2 0;2 0;2 0;3 0;3 0;2 0;3 0;2 0;2 0;2 0;2 0;2 0;2 -1;3 1;3 0;2 0;2 0;3 0;3 0;3 0;2 0;3 0;3 0;2 0;2 0;2 0;3 0;2 0;3 0;3 0;2 0;3 0;2 0;2 0;3 0;3 0;3 0;2 0] 
 diplopiaScore : 0 
-distFromScreen : 150 
 dprL : 7.49889296564566 
-dprR : 11.6098082629071 
-duration : 2.52771629834897 
+dprR : 7.11308718934953 
+duration : 6.8700939599997 
 expe : 
-      name = DSTv7
+      name = DST8
       time = []
       vergenceTime = []
       date = []
@@ -62,58 +60,63 @@ expe :
            fr = ===========  MERCI  ===========
            en = ===========  THANK YOU  ===========
       DE = 1
-      startTime = 614555.865008711
-      endTime = 614707.527986611 
+      startTime = 360179.1534743
+      endTime = 360591.3591119 
 file : 3 
-fileMat : default.mat 
-fileName : default.txt 
-flickering : 0 
+fileMat : C:fileName : C:flickering : 0 
 fontSize : 14 
-initialParam : 
-      Box = 20
-      inputMode = 1
-      quickMode = 2
-      displayMode = 2
-      polarity = 4 
-language : en 
 leftContr : 0.96 
-leftEye : [2 1 1;2 1 1;2 0 0;2 0 0;2 1 1;2 0 0;2 1 1;2 0 0;2 1 1;2 0 0;2 0 0;2 1 1;2 0 0;2 0 0;2 1 1;2 1 0;2 1 1;2 0 0;2 1 1;2 1 1;2 0 0;2 1 1;2 1 1;2 0 0;2 0 0;2 0 0;2 1 1;2 1 1;2 0 0;2 0 0] 
+leftEye : [2 0 0;2 1 1;2 1 1;2 0 0;2 1 1;2 0 0;2 1 1;2 0 0;2 0 0;2 1 1;2 0 0;2 0 0;2 0 0;2 1 1;2 1 1;2 1 1;2 1 1;2 1 1;2 1 0;2 0 0;2 0 0;2 0 0;2 0 0;2 1 1;2 0 0;2 1 1;2 0 0;2 0 0;2 1 1;2 1 1] 
 leftLeftShift : 0 
 leftUpShift : 0 
-nameDST : default 
+nameDST : test 
 nbCRL : 15 
-nbCRR : 15 
+nbCRR : 14 
 nbFAL : 0 
-nbFAR : 0 
+nbFAR : 1 
 nbHitL : 14 
 nbHitR : 15 
 nbMissL : 1 
 nbMissR : 0 
+param : 
+      inputMode = 1
+      quickMode = 2
+      displayMode = 2
+      polarity = 4
+      scr = 
+           W = 600
+           H = 340
+           distFromScreen = 150
+           goalWidthRes = 1920
+           goalHeightRes = 1080
+           goalRefreshRate = 60
+           viewpixx = 0
+      box = [0.0029134 1.8154] 
 pathExp : C:polarity : 4 
 ratio : [1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1] 
 rightContr : 0.96 
-rightEye : [3 0 0;3 0 0;3 1 1;3 1 1;3 0 0;3 1 1;3 0 0;3 1 1;3 1 1;3 1 1;3 1 1;3 1 1;3 0 0;3 0 0;3 1 1;3 1 1;3 0 0;3 1 1;3 1 1;3 1 1;3 0 0;3 1 1;3 0 0;3 1 1;3 0 0;3 0 0;3 0 0;3 0 0;3 0 0;3 0 0] 
+rightEye : [3 0 0;3 1 1;3 1 1;3 0 0;3 1 1;3 0 0;3 1 1;3 0 0;3 1 1;3 1 1;3 0 0;3 0 0;3 1 1;3 1 1;3 1 1;3 0 0;3 0 1;3 0 0;3 0 0;3 1 1;3 0 0;3 1 1;3 0 0;3 0 0;3 1 1;3 0 0;3 1 1;3 1 1;3 0 0;3 1 1] 
 rightLeftShift : 0 
 rightUpShift : 0 
-rootpath : C:savedTrials : [1 0 0;1 0 0;1 2 2;1 0 0;1 2 2;1 1 1;1 1 1;1 2 2;1 0 0;1 1 1;1 2 2;1 0 0;1 1 1;1 2 2;1 2 2;1 2 2;1 0 0;1 2 2;1 0 0;1 1 1;1 1 1;1 1 1;1 1 1;1 2 2;1 1 1;1 0 0;1 1 1;1 0 0;1 2 2;1 0 0;2 1 1;2 1 1;3 0 0;3 0 0;3 1 1;2 0 0;3 1 1;2 0 0;2 1 1;3 0 0;2 0 0;2 1 1;2 0 0;3 1 1;2 1 1;3 0 0;3 1 1;2 0 0;2 0 0;3 1 1;3 1 1;2 1 1;2 0 0;2 0 0;3 1 1;2 1 1;2 1 0;3 1 1;3 0 0;2 1 1;3 0 0;2 0 0;3 1 1;2 1 1;3 1 1;3 0 0;2 1 1;3 1 1;3 1 1;3 1 1;3 0 0;2 0 0;2 1 1;2 1 1;3 1 1;2 0 0;2 0 0;3 0 0;3 1 1;2 0 0;3 0 0;3 0 0;2 1 1;3 0 0;2 1 1;2 0 0;3 0 0;3 0 0;3 0 0;2 0 0] 
+rootpath : C:savedTrials : [1 1 1;1 2 2;1 0 0;1 2 2;1 1 1;1 0 0;1 1 1;1 1 1;1 2 2;1 1 1;1 2 2;1 1 1;1 1 1;1 1 1;1 2 2;1 2 2;1 0 0;1 0 0;1 0 0;1 1 1;1 2 2;1 0 0;1 0 0;1 2 2;1 0 0;1 2 2;1 1 1;1 0 0;1 2 2;1 0 0;2 0 0;2 1 1;3 0 0;3 1 1;3 1 1;2 1 1;3 0 0;3 1 1;3 0 0;3 1 1;2 0 0;2 1 1;3 0 0;2 0 0;2 1 1;3 1 1;3 1 1;2 0 0;3 0 0;3 0 0;3 1 1;2 0 0;2 1 1;2 0 0;2 0 0;3 1 1;3 1 1;2 0 0;3 0 0;2 1 1;2 1 1;2 1 1;2 1 1;2 1 1;2 1 0;3 0 1;3 0 0;2 0 0;2 0 0;3 0 0;3 1 1;3 0 0;2 0 0;3 1 1;3 0 0;2 0 0;2 1 1;2 0 0;3 0 0;2 1 1;3 1 1;3 0 0;2 0 0;3 1 1;2 0 0;2 1 1;3 1 1;3 0 0;3 1 1;2 1 1] 
 scr : 
-      screenNumber = 0
-      box = 20
-      W = 485
-      H = 300
-      frameSep = 105
+      W = 600
+      H = 340
       distFromScreen = 150
       goalWidthRes = 1920
-      goalHeightRes = 1200
-      goalRefreshRate = 120
+      goalHeightRes = 1080
+      goalRefreshRate = 60
+      viewpixx = 0
+      screenNumber = 0
+      box = [0.0029134 1.8154]
       oldResolution = 
            width = 1920
-           height = 1200
+           height = 1080
            pixelSize = 32
-           hz = 120
-      res = [0 0 1920 1200]
-      ppBymm = 3.95876288659794
-      VA2pxConstant = 103.650694831478
+           hz = 60
+      res = [0 0 1920 1080]
+      ppBymm = 3.2
+      VA2pxConstant = 83.7843116554444
       backgr = 40
       bg = 40
       fontColor = 0
@@ -121,17 +124,18 @@ scr :
       w = 10
       fontSize = 10
       centerX = 960
-      centerY = 600
-      stereoDeviation = 415.670103092784
-      LcenterX = 544
-      RcenterX = 1376
+      centerY = 540
+      frameSep = 150
+      stereoDeviation = 480
+      LcenterX = 480
+      RcenterX = 1440
       midPt = 960
-      LcenterXLine = 544
-      RcenterXLine = 1376
-      centerYLine = 600
-      LcenterXDot = 543
-      RcenterXDot = 1375
-      centerYDot = 601 
+      LcenterXLine = 480
+      RcenterXLine = 1440
+      centerYLine = 540
+      LcenterXDot = 479
+      RcenterXDot = 1439
+      centerYDot = 541 
 sounds : 
       success = 
            duration = 0.2
@@ -202,12 +206,12 @@ stim :
       outFusFrameHeightVA = 4
       outFusFrameEccVA = 0.9
       frameLineWidthVA = 0.2
-      frameWidthVA = 7
-      frameHeightVA = 7
+      frameWidthVA = 7.1
+      frameHeightVA = 8
       frameContrast = 0.96
       framePhase = 3.14159265358979
       horiz = 
-           widthVA = 7
+           widthVA = 7.1
            heightVA = 0.2
            averageL = 40
            contrast = 0.96
@@ -216,11 +220,11 @@ stim :
            phase = 3.14159265358979
            FWHM = 100
            discrete = 1
-           width = 729
-           height = 21
+           width = 598
+           height = 17
       vert = 
            widthVA = 0.2
-           heightVA = 7
+           heightVA = 8
            averageL = 40
            contrast = 0.96
            tilt = 0
@@ -228,34 +232,28 @@ stim :
            phase = 3.14159265358979
            FWHM = 100
            discrete = 1
-           width = 21
-           height = 729
+           width = 17
+           height = 675
       maxLum = 80
       minLum = 0
       circleSizeVA = 0.6
       circleLineWidthMin = 4
       dotSizeVA = 0.25
-      dotSizeRangeVA = [0.15 0.4]
-      dotDensity = 25
-      coherence = 0
-      fixationLength = 52
-      fixationLineWidth = 21
-      fixationOffset = 17
-      fixationDotSize = 21
-      frameLineWidth = 21
-      circleSize = 62
-      circleLineWidth = 7
-      outFusFrameWidth = 198
-      outFusFrameHeight = 415
-      outFusFrameEcc = 93
-      dotSize = 26
+      fixationLength = 42
+      fixationLineWidth = 17
+      fixationOffset = 14
+      fixationDotSize = 17
+      frameLineWidth = 17
+      circleSize = 50
+      circleLineWidth = 6
+      outFusFrameWidth = 160
+      outFusFrameHeight = 336
+      outFusFrameEcc = 75
+      dotSize = 21
       duration = 200
       itemDuration = 5000
       interTrial = 200
       minimalDuration = 200
-      dotSizeRange = [16 41]
-      apparentSizeVA = 0.2
-      apparentSize = 20.7301389662955
       polarity = 4
       LmaxL = 78.4
       LminL = 1.59999999999999

@@ -19,14 +19,13 @@ screens=Screen('Screens');
 scr.screenNumber=max(screens);
 scr.box=gamma;
 
-        %check that we have the appropriate resolution
-            scr.oldResolution=Screen('Resolution',scr.screenNumber);
-            if scr.oldResolution.width==scr.goalWidthRes && scr.oldResolution.height==scr.goalHeightRes && scr.oldResolution.hz==scr.goalRefreshRate
-                disp('Resolution and refresh are correct')
-            else
-                 changeResolution(scr.screenNumber, scr.goalWidthRes, scr.goalHeightRes, scr.goalRefreshRate);
-            end
-            scr.res=Screen('Rect', scr.screenNumber); %screen size in pixel, format: [0 0 maxHoriz maxVert]
+%check that we have the appropriate resolution
+[success, scr.oldResolution, scr.newResolution]  = changeResolution(scr.screenNumber, scr.goalWidthRes, scr.goalHeightRes, scr.goalRefreshRate);
+if success==0; error('See warning - resolution could not be changed appropriately');end
+scr.pixelSize = scr.newResolution.pixelSize;
+scr.oldResolution=Screen('Resolution',scr.screenNumber);
+scr.res=Screen('Rect', scr.screenNumber); %screen size in pixel, format: [0 0 maxHoriz maxVert]
+
 %check if vertical and horizontal pixel sizes are the same
 scr.ppBymm= scr.res(3)/scr.W;
 if abs((scr.res(3)/scr.W)-(scr.res(4)/scr.H))>0.05; warning('Ratio error >5%: change the screen resolution to have equal pixel sizes.');end

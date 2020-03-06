@@ -14,7 +14,7 @@ rand('twister', sum(100*clock)); %rng('shuffle');
 %              WINDOW-SCREEN PARAMETERS
 %======================================================================
 
-Screen('Preference', 'SkipSyncTests', 2); %HERE should be 0
+Screen('Preference', 'SkipSyncTests', 0); %HERE should be 0
 screens=Screen('Screens');
 scr.screenNumber=max(screens);
 scr.box=gamma;

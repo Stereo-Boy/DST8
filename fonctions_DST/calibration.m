@@ -143,6 +143,8 @@ while goFlag==1
    % Screen('FrameRect', scr.w, sc(stim.fixL,scr.box),[scr.LcenterXLine-stim.horiz.width/2,scr.LcenterYLine-stim.vert.height/2,scr.LcenterXLine+stim.horiz.width/2,scr.LcenterYLine+stim.vert.height/2], stim.horiz.height)
    % Screen('FrameRect', scr.w, sc(stim.fixR,scr.box),[scr.RcenterXLine-stim.horiz.width/2,scr.RcenterYLine-stim.vert.height/2,scr.RcenterXLine+stim.horiz.width/2,scr.RcenterYLine+stim.vert.height/2], stim.horiz.height)
     % ------ Outside frames    
+    stim.frameL = [scr.LcenterXLine-stim.frameWidth/2,scr.LcenterYLine-stim.frameHeight/2,scr.LcenterXLine+stim.frameWidth/2,scr.LcenterYLine+stim.frameHeight/2];
+    stim.frameR = [scr.RcenterXLine-stim.frameWidth/2,scr.RcenterYLine-stim.frameHeight/2,scr.RcenterXLine+stim.frameWidth/2,scr.RcenterYLine+stim.frameHeight/2];
     Screen('FrameRect', scr.w, sc(stim.fixL,scr.box),stim.frameL, stim.frameLineWidth);
     Screen('FrameRect', scr.w, sc(stim.fixR,scr.box),stim.frameR, stim.frameLineWidth);
     %--------------------------------------------------------------------------

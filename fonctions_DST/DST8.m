@@ -27,18 +27,18 @@ function DST8(param)
 try
     clc
     [pathExp,~]=fileparts(fileparts(mfilename('fullpath')));
-    rootpath=fileparts(pathExp);
+    %rootpath=fileparts(pathExp);
     disp(' ------------    DST v8  ------------------')
     disp(dateTime)
     dispi('Started from: ',pathExp)
     diary(fullfile(pathExp,'log',[sprintf('%02.f_',fix(clock)),'DST.txt']));
     diary ON
-    disp(['Checking that experimental path exists: ', pathExp])
-    if exist(pathExp, 'dir');        cd(pathExp);    else        error('runDST: missing path');    end
-    disp('Moving path on top of path search list')
-    path(genpath(pathExp), path);
-    disp(['Adding fonctions_MATLAB from Berkeley Drive on top too: ',genpath(fullfile(rootpath,'fonctions_MATLAB'))])
-    path(genpath(fullfile(rootpath,'fonctions_MATLAB')), path);
+    %disp(['Checking that experimental path exists: ', pathExp])
+    %if exist(pathExp, 'dir');        cd(pathExp);    else        error('runDST: missing path');    end
+    %disp('Moving path on top of path search list')
+    %path(genpath(pathExp), path);
+    %disp(['Adding fonctions_MATLAB from Berkeley Drive on top too: ',genpath(fullfile(rootpath,'fonctions_MATLAB'))])
+    %path(genpath(fullfile(rootpath,'fonctions_MATLAB')), path);
       
     if ~exist('param', 'var')
         polarity = 1; %1 : standard with grey background, 2: white on black background, 3: black on white background

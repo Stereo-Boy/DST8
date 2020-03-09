@@ -260,7 +260,6 @@ cd(fullfile(pathExp,'dataFiles'))
     
 catch err   %===== DEBUGING =====%
     disp(err)
-    keyboard
    try
         save(fullfile(pathExp,'log',[nameDST,'-crashlog']))
         %saveAll(fullfile(pathExp,'log',[nameDST,'-crashlog.mat']),fullfile(pathExp,'log',[nameDST,'-crashlog.txt']))

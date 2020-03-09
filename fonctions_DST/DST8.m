@@ -41,7 +41,7 @@ try
     path(genpath(fullfile(rootpath,'fonctions_MATLAB')), path);
       
     if ~exist('param', 'var')
-        polarity = 4; %1 : standard with grey background, 2: white on black background, 3: black on white background
+        polarity = 1; %1 : standard with grey background, 2: white on black background, 3: black on white background
         %4: half half
     end
         
@@ -72,7 +72,7 @@ else
     polarity = param.polarity;
 end
 
-cd([pathExp,filesep,'dataFiles'])
+cd(fullfile(pathExp,'dataFiles'))
 
     %----- mode related stuff ---%
     if quickMode==2
@@ -89,35 +89,33 @@ cd([pathExp,filesep,'dataFiles'])
     %Initialize and load experiment settings (window and stimulus)
         
     %first check is file exists for that name
-    file= [cd,filesep, nameDST,'.mat'];
-    alreadyStarted=exist(file,'file')==2;
+    %file= [cd,filesep, nameDST,'.mat'];
+    %alreadyStarted=exist(file,'file')==2;
     
-    %if file exist but its default, delete and start afresh
-    if quickMode==1 && alreadyStarted==1; delete(file); delete([cd,filesep, nameDST,'.txt']); alreadyStarted=0; end 
+%     %if file exist but its default, delete and start afresh
+%     if quickMode==1 && alreadyStarted==1; delete(file); delete([cd,filesep, nameDST,'.txt']); alreadyStarted=0; end 
 
-    if alreadyStarted==0 %intialize
+    %if alreadyStarted==0 %intialize
        
         %--------------------------------------------------------------------------
         %LOAD EXPERIMENTAL PARAMETERS FROM A SEPARATE FILE
         %--------------------------------------------------------------------------
-        [expe,scr,stim,sounds]=globalParametersDST8(param.scr,param.box);
+        [expe,scr,stim,sounds]=globalParametersDST8(param.scr);
         if exist('parameters','var')
             %special parameters to change after loading
             disp parameters
         end
-        file= [cd,filesep, nameDST,'.mat'];
+        %file = fullfile(cd, [nameDST,'.mat']);
 
         
-    else
-       %if the file exists, just load it, but not if robotmode / quicmode
-       
-
-           disp('Name exists: load previous data and parameters')
-            load([nameDST,'.mat'])
-            Screen('Preference', 'SkipSyncTests', 0);
-        scr.w=Screen('OpenWindow',scr.screenNumber, sc(scr.backgr,scr.box), [], 32, 2);
-        precautions(scr.w, 'on');
-    end
+%     else
+%        %if the file exists, just load it, but not if robotmode / quicmode
+%            disp('Name exists: load previous data and parameters')
+%             load([nameDST,'.mat'])
+%             Screen('Preference', 'SkipSyncTests', 0);
+%         scr.w=Screen('OpenWindow',scr.screenNumber, sc(scr.backgr,scr.box), [], 32, 2);
+%         precautions(scr.w, 'on');
+%     end
        
     %----- ROBOT MODE ------%
     %when in robot mode, make all timings very short
@@ -251,22 +249,22 @@ cd([pathExp,filesep,'dataFiles'])
         clear quickMode inputMode displayMode
         disp(['Saving data to: ', nameDST, '.mat'])
         save(fullfile(pathExp,'dataFiles',[nameDST, '.mat']))
-        saveAll(fullfile(pathExp,'dataFiles',[nameDST, '.mat']),fullfile(pathExp,'dataFiles',[nameDST, '.txt']))
+        %saveAll(fullfile(pathExp,'dataFiles',[nameDST, '.mat']),fullfile(pathExp,'dataFiles',[nameDST, '.txt']))
         dispDST
 
     
     %===== QUIT =====%
-    warnings
+    %warnings
     changeResolution(scr.screenNumber, scr.oldResolution.width, scr.oldResolution.height, scr.oldResolution.hz);
     diary OFF
     
 catch err   %===== DEBUGING =====%
     disp(err)
     keyboard
-    try
+   try
         save(fullfile(pathExp,'log',[nameDST,'-crashlog']))
-        saveAll(fullfile(pathExp,'log',[nameDST,'-crashlog.mat']),fullfile(pathExp,'log',[nameDST,'-crashlog.txt']))
-        warnings
+        %saveAll(fullfile(pathExp,'log',[nameDST,'-crashlog.mat']),fullfile(pathExp,'log',[nameDST,'-crashlog.txt']))
+        %warnings
         diary OFF
         
         if exist('scr','var');     changeResolution(scr.screenNumber, scr.oldResolution.width, scr.oldResolution.height, scr.oldResolution.hz);precautions(scr.w, 'off');  end
@@ -277,6 +275,7 @@ catch err   %===== DEBUGING =====%
     end
 
 end
+
 end
 
 

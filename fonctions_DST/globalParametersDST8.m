@@ -1,4 +1,4 @@
-function [expe,scr,stim,sounds]=globalParametersDST8(scr,gamma)
+function [expe,scr,stim,sounds]=globalParametersDST8(scr)
 %======================================================================
 %  Goal: control panel for the expriment parameters
 %======================================================================
@@ -7,8 +7,7 @@ function [expe,scr,stim,sounds]=globalParametersDST8(scr,gamma)
 %-----------------------------------------------------------------------
 
 %set the randomness random
-%rng('default') %does not work on experimetn computer
-rand('twister', sum(100*clock)); %rng('shuffle');
+try rng('shuffle'); catch; rand('twister', sum(100*clock)); end
 
 %======================================================================
 %              WINDOW-SCREEN PARAMETERS
@@ -17,7 +16,7 @@ rand('twister', sum(100*clock)); %rng('shuffle');
 Screen('Preference', 'SkipSyncTests', 0); %HERE should be 0
 screens=Screen('Screens');
 scr.screenNumber=max(screens);
-scr.box=gamma;
+scr.box=[scr.paramOptim1, scr.paramOptim2]; % gamma parameters - for compatibility 
 
 %check that we have the appropriate resolution
 [success, scr.oldResolution, scr.newResolution]  = changeResolution(scr.screenNumber, scr.goalWidthRes, scr.goalHeightRes, scr.goalRefreshRate);
@@ -30,7 +29,7 @@ scr.res=Screen('Rect', scr.screenNumber); %screen size in pixel, format: [0 0 ma
 scr.ppBymm= scr.res(3)/scr.W;
 if abs((scr.res(3)/scr.W)-(scr.res(4)/scr.H))>0.05; warning('Ratio error >5%: change the screen resolution to have equal pixel sizes.');end
 scr.VA2pxConstant=scr.ppBymm *10*VA2cm(1,scr.distFromScreen); %constant by which we multiply a value in VA to get a value in px
-scr.backgr=40; %in cd/m2
+scr.backgr=15; %in cd/m2
 scr.bg = scr.backgr; %copy
 scr.fontColor=0;
 scr.keyboardNum=-1;
@@ -122,8 +121,14 @@ stim.outFusFrameWidth=round(convertVA2px(stim.outFusFrameWidthVA));
 stim.outFusFrameHeight=round(convertVA2px(stim.outFusFrameHeightVA));
 stim.outFusFrameEcc=round(convertVA2px(stim.outFusFrameEccVA));
 stim.dotSize=round(convertVA2px(stim.dotSizeVA));
+stim.frameWidth = round(convertVA2px(stim.frameWidthVA));
+stim.frameHeight = round(convertVA2px(stim.frameHeightVA));
 if mod(stim.outFusFrameWidth,2)~=0; disp('stim.outFusFrameWidth should be a multiple of 2: we add 1 to it.');  stim.outFusFrameWidth = stim.outFusFrameWidth+1; end
 
+stim.frameL = [scr.LcenterXLine-stim.frameWidth/2,scr.centerYLine-stim.frameHeight/2,scr.LcenterXLine+stim.frameWidth/2,scr.centerYLine+stim.frameHeight/2];
+stim.frameR = [scr.RcenterXLine-stim.frameWidth/2,scr.centerYLine-stim.frameHeight/2,scr.RcenterXLine+stim.frameWidth/2,scr.centerYLine+stim.frameHeight/2];
+
+    
 if scr.viewpixx==1
 %     %SPECIAL VIEWPIXX
     if scr.box==17
@@ -149,14 +154,8 @@ stim.minimalDuration                = 200;
 %--------------------------------------------------------------------------
 %         sounds PARAMETERS
 %--------------------------------------------------------------------------
-duration=0.2;
-freq1=1000;
-freq2=500;
-freq3 = 2000;
-        sounds.success=soundDefine(duration,freq1);
-        sounds.fail=soundDefine(duration,freq2);
-        sounds.outFixation = soundDefine(duration,freq3);
-
+sounds = []; % no sound on this version
+        
 %--------------------------------------------------------------------------
 
 %--------------------------------------------------------------------------

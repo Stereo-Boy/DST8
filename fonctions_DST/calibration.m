@@ -140,9 +140,11 @@ while goFlag==1
     %Screen('DrawTextures',scr.w,[horizframeL,horizframeR,horizframeL,horizframeR,vertframeL,vertframeR,vertframeL,vertframeR],[],[topFrameCoordL',topFrameCoordR',bottomFrameCoordL',bottomFrameCoordR',leftFrameL',leftFrameR',rightFrameL',rightFrameR'])
     
     %REPLACE HASHED FRAMES WITH AN HOMOGENOUS ONE
-    Screen('FrameRect', scr.w, sc(stim.fixL,scr.box),[scr.LcenterXLine-stim.horiz.width/2,scr.LcenterYLine-stim.vert.height/2,scr.LcenterXLine+stim.horiz.width/2,scr.LcenterYLine+stim.vert.height/2], stim.horiz.height)
-    Screen('FrameRect', scr.w, sc(stim.fixR,scr.box),[scr.RcenterXLine-stim.horiz.width/2,scr.RcenterYLine-stim.vert.height/2,scr.RcenterXLine+stim.horiz.width/2,scr.RcenterYLine+stim.vert.height/2], stim.horiz.height)
-
+   % Screen('FrameRect', scr.w, sc(stim.fixL,scr.box),[scr.LcenterXLine-stim.horiz.width/2,scr.LcenterYLine-stim.vert.height/2,scr.LcenterXLine+stim.horiz.width/2,scr.LcenterYLine+stim.vert.height/2], stim.horiz.height)
+   % Screen('FrameRect', scr.w, sc(stim.fixR,scr.box),[scr.RcenterXLine-stim.horiz.width/2,scr.RcenterYLine-stim.vert.height/2,scr.RcenterXLine+stim.horiz.width/2,scr.RcenterYLine+stim.vert.height/2], stim.horiz.height)
+    % ------ Outside frames    
+    Screen('FrameRect', scr.w, sc(stim.fixL,scr.box),stim.frameL, stim.frameLineWidth);
+    Screen('FrameRect', scr.w, sc(stim.fixR,scr.box),stim.frameR, stim.frameLineWidth);
     %--------------------------------------------------------------------------
     %     flip(inputMode, scr.w);
     %     WaitSecs(2)
@@ -258,7 +260,7 @@ while goFlag==1
         % --- ESCAPE PRESS : escape the whole program ----%
         if responseKey==4
             disp('Voluntary Interruption')
-            warnings
+%            warnings
             precautions(scr.w, 'off');
             return
         end

@@ -9,12 +9,12 @@ function runDST8
        param.inputMode=1;
        param.quickMode=2;
        param.displayMode=2;
-       param.polarity = 4;
+       param.polarity = 1; % other polarities won't work anymore - keep this as it is
  
        [pathExp,~]=fileparts(mfilename('fullpath'));
        addpath(fullfile(pathExp,'fonctions_DST'))
        addpath(fullfile(pathExp,'screen'))
        
-       [param.scr, param.box]=screen_parameters;
+       param.scr=screen_parameters;
        DST8(param);
  

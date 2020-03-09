@@ -196,9 +196,11 @@ for myTrial=1:size(CRlist,1)
 %        Screen('DrawTextures',scr.w,[horizframeL,horizframeR,horizframeL,horizframeR,vertframeL,vertframeR,vertframeL,vertframeR],[],[topFrameCoordL',topFrameCoordR',bottomFrameCoordL',bottomFrameCoordR',leftFrameL',leftFrameR',rightFrameL',rightFrameR'])
         
          %REPLACE HASHED FRAMES WITH AN HOMOGENOUS ONE
-    Screen('FrameRect', scr.w, sc(stim.fixL,scr.box),[scr.LcenterXLine-stim.horiz.width/2,scr.LcenterYLine-stim.vert.height/2,scr.LcenterXLine+stim.horiz.width/2,scr.LcenterYLine+stim.vert.height/2], stim.horiz.height)
-    Screen('FrameRect', scr.w, sc(stim.fixR,scr.box),[scr.RcenterXLine-stim.horiz.width/2,scr.RcenterYLine-stim.vert.height/2,scr.RcenterXLine+stim.horiz.width/2,scr.RcenterYLine+stim.vert.height/2], stim.horiz.height)
-   
+    %Screen('FrameRect', scr.w, sc(stim.fixL,scr.box),[scr.LcenterXLine-stim.horiz.width/2,scr.LcenterYLine-stim.vert.height/2,scr.LcenterXLine+stim.horiz.width/2,scr.LcenterYLine+stim.vert.height/2], stim.horiz.height)
+    %Screen('FrameRect', scr.w, sc(stim.fixR,scr.box),[scr.RcenterXLine-stim.horiz.width/2,scr.RcenterYLine-stim.vert.height/2,scr.RcenterXLine+stim.horiz.width/2,scr.RcenterYLine+stim.vert.height/2], stim.horiz.height)
+       % ------ Outside frames    
+    Screen('FrameRect', scr.w, sc(stim.fixL,scr.box),stim.frameL, stim.frameLineWidth);
+    Screen('FrameRect', scr.w, sc(stim.fixR,scr.box),stim.frameR, stim.frameLineWidth);
         %-----fixation
         drawDichFixation(scr,stim);
         
@@ -237,12 +239,12 @@ for myTrial=1:size(CRlist,1)
         %---Dots
         if nbDots>0
             if binoType==2
-                Screen('DrawDots', scr.w, LcirclesXY ,stim.dotSize, sc(stim.fixL,scr.box), [] ,1);
+                Screen('DrawDots', scr.w, LcirclesXY ,stim.dotSize, sc(stim.fixL,scr.box), [] ,3);
             elseif binoType==3
-                Screen('DrawDots', scr.w, RcirclesXY ,stim.dotSize, sc(stim.fixR,scr.box), [] ,1);
+                Screen('DrawDots', scr.w, RcirclesXY ,stim.dotSize, sc(stim.fixR,scr.box), [] ,3);
             else
-                Screen('DrawDots', scr.w, LcirclesXY ,stim.dotSize, sc(stim.fixL,scr.box), [] ,1);
-                Screen('DrawDots', scr.w, RcirclesXY ,stim.dotSize, sc(stim.fixR,scr.box), [] ,1);
+                Screen('DrawDots', scr.w, LcirclesXY ,stim.dotSize, sc(stim.fixL,scr.box), [] ,3);
+                Screen('DrawDots', scr.w, RcirclesXY ,stim.dotSize, sc(stim.fixR,scr.box), [] ,3);
             end
         end
         %-------- FLIP ------------------------------------------
@@ -261,17 +263,17 @@ for myTrial=1:size(CRlist,1)
     % --- ESCAPE PRESS : escape the whole program ----%
     if responseKey==4
         disp('Voluntary Interruption')
-        warnings
+        %warnings
         precautions(scr.w, 'off');
         return
     end
     
 
-    if inputMode==1
-      
-      play(sounds.success.obj)
-      
-    end
+%     if inputMode==1
+%       
+%       play(sounds.success.obj)
+%       
+%     end
     %--------------------------------------------------------------------------
     %   SAVE TRIAL
     %--------------------------------------------------------------------------

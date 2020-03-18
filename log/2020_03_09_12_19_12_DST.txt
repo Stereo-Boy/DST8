@@ -1,0 +1,153 @@
+Use wrapper parameters
+Enter participant's ID:  test1
+Non-amblyopic Eye (1 for Left; 2 for Right):  1
+Press a key to start
+changeResolution: We will do nothing because the current resolution is already at 1920x1080
+and the current refresh rate is already 60hz
+[Warning: Ratio error >5%: change the screen resolution to have equal pixel sizes.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('globalParametersDST8', 'C:\Users\Adrian\Google Drive\recherches partiel\2019_ASM_Accurate_Stereoacuity_Measure\DST8\fonctions_DST\globalParametersDST8.m', 30)" style="font-weight:bold">globalParametersDST8</a> (<a href="matlab: opentoline('C:\Users\Adrian\Google Drive\recherches partiel\2019_ASM_Accurate_Stereoacuity_Measure\DST8\fonctions_DST\globalParametersDST8.m',30,0)">line 30</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('DST8', 'C:\Users\Adrian\Google Drive\recherches partiel\2019_ASM_Accurate_Stereoacuity_Measure\DST8\fonctions_DST\DST8.m', 103)" style="font-weight:bold">DST8</a> (<a href="matlab: opentoline('C:\Users\Adrian\Google Drive\recherches partiel\2019_ASM_Accurate_Stereoacuity_Measure\DST8\fonctions_DST\DST8.m',103,0)">line 103</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runDST8', 'C:\Users\Adrian\Google Drive\recherches partiel\2019_ASM_Accurate_Stereoacuity_Measure\DST8\runDST8.m', 19)" style="font-weight:bold">runDST8</a> (<a href="matlab: opentoline('C:\Users\Adrian\Google Drive\recherches partiel\2019_ASM_Accurate_Stereoacuity_Measure\DST8\runDST8.m',19,0)">line 19</a>)] 
+
+
+PTB-INFO: This is Psychtoolbox-3 for Microsoft Windows, under Matlab 64-Bit (Version 3.0.16 - Build date: Aug  7 2019).
+PTB-INFO: OS support status: Windows 10 (Version 10.0) supported and tested to some limited degree.
+PTB-INFO: Type 'PsychtoolboxVersion' for more detailed version information.
+PTB-INFO: Most parts of the Psychtoolbox distribution are licensed to you under terms of the MIT License, with
+PTB-INFO: some restrictions. See file 'License.txt' in the Psychtoolbox root folder for the exact licensing conditions.
+
+PTB-INFO: The detected endline of the vertical blank interval is equal or lower than the startline. This indicates
+PTB-INFO: that i couldn't detect the duration of the vertical blank interval and won't be able to correct timestamps
+PTB-INFO: for it. This will introduce a very small and constant offset (typically << 1 msec). Read 'help BeampositionQueries'
+PTB-INFO: for how to correct this, should you really require that last few microseconds of precision.
+PTB-INFO: Btw. this can also mean that your systems beamposition queries are slightly broken. It may help timing precision to
+PTB-INFO: enable the beamposition workaround, as explained in 'help ConserveVRAMSettings', section 'kPsychUseBeampositionQueryWorkaround'.
+
+
+PTB-INFO: OpenGL-Renderer is Intel :: Intel(R) UHD Graphics 620 :: 4.6.0 - Build 26.20.100.7262
+PTB-INFO: VBL startline = 1080 , VBL Endline = 1080
+PTB-INFO: Measured monitor refresh interval from beamposition = 16.664049 ms [60.009425 Hz].
+PTB-INFO: Beamposition queries are supported, but disabled. Using basic timestamping as fallback:
+PTB-INFO: Timestamps returned by Screen('Flip') will be therefore less robust and accurate.
+PTB-INFO: Measured monitor refresh interval from VBLsync = 16.666566 ms [60.000362 Hz]. (50 valid samples taken, stddev=0.044002 ms.)
+PTB-INFO: Reported monitor refresh interval from operating system = 16.666667 ms [60.000000 Hz].
+PTB-INFO: Small deviations between reported values are normal and no reason to worry.
+PTB-INFO: ==============================================================================================================================
+PTB-INFO: WINDOWS DWM DESKTOP COMPOSITOR IS ACTIVE. On this Windows-10 or later system, Psychtoolbox can no longer reliably detect if
+PTB-INFO: this will cause trouble for timing and integrity of visual stimuli or not. You might be just fine, or you could be in trouble.
+PTB-INFO: Use external measurement equipment and independent procedures to verify reliability of timing if you care about proper timing.
+PTB-INFO: ==============================================================================================================================
+stim.outFusFrameWidth should be a multiple of 2: we add 1 to it.
+                   name: 'DST8'
+                   time: []
+           vergenceTime: []
+                   date: {}
+                 breaks: []
+              breakTime: 10
+          instrPosition: [0 300 400 1100]
+        escapeTimeLimit: 10
+     fusionTestTrialNb1: 10
+     fusionTestTrialNb2: 15
+    fusionTestcircleNb1: 3
+              breaktime: [1×1 struct]
+                    thx: [1×1 struct]
+
+                  W: 540
+                  H: 320
+       goalWidthRes: 1920
+      goalHeightRes: 1080
+    goalRefreshRate: 60
+     distFromScreen: 150
+           viewpixx: 0
+        paramOptim1: 0.0062
+        paramOptim2: 1.7274
+       screenNumber: 2
+                box: [0.0062 1.7274]
+      oldResolution: [1×1 struct]
+      newResolution: [1×1 struct]
+          pixelSize: 32
+                res: [0 0 1920 1080]
+             ppBymm: 3.5556
+      VA2pxConstant: 93.0937
+             backgr: 15
+                 bg: 15
+          fontColor: 0
+        keyboardNum: -1
+                  w: 10
+           fontSize: 10
+            centerX: 960
+            centerY: 540
+           frameSep: 135
+    stereoDeviation: 480
+           LcenterX: 480
+           RcenterX: 1440
+              midPt: 960
+       LcenterXLine: 480
+       RcenterXLine: 1440
+        centerYLine: 540
+        LcenterXDot: 479
+        RcenterXDot: 1439
+         centerYDot: 541
+
+       fixationLengthMin: 30
+    fixationLineWidthMin: 12
+       fixationOffsetMin: 10
+      fixationDotSizeMin: 12
+      outFusFrameWidthVA: 1.9000
+     outFusFrameHeightVA: 4
+        outFusFrameEccVA: 0.9000
+        frameLineWidthVA: 0.2000
+            frameWidthVA: 7.1000
+           frameHeightVA: 8
+           frameContrast: 0.9600
+              framePhase: 3.1416
+                   horiz: [1×1 struct]
+                    vert: [1×1 struct]
+                  maxLum: 30
+                  minLum: 0
+            circleSizeVA: 0.6000
+      circleLineWidthMin: 4
+               dotSizeVA: 0.2500
+          fixationLength: 47
+       fixationLineWidth: 19
+          fixationOffset: 16
+         fixationDotSize: 19
+          frameLineWidth: 19
+              circleSize: 56
+         circleLineWidth: 6
+        outFusFrameWidth: 178
+       outFusFrameHeight: 373
+          outFusFrameEcc: 84
+                 dotSize: 23
+              frameWidth: 664
+             frameHeight: 750
+                  frameL: [148 165 812 915]
+                  frameR: [1108 165 1772 915]
+                duration: 200
+            itemDuration: 5000
+              interTrial: 200
+         minimalDuration: 200
+
+
+ans =
+
+        1168
+
+
+ans =
+
+        1210
+
+Diplopia score: -25%
+Dprime Score Left Eye: 0
+Dprime Score Right Eye: 0
+Duration (min): 0.73209
+Saving data to: test1.mat
+We work with current workspace structure calib
+It corresponds to the DST file called: test1
+Left base down prism should be: -2.9531 PD
+Left base left in prism should be: 2.2781 PD
+Left eye contrast: 24.565%
+Right eye contrast: 96%
+changeResolution: We will do nothing because the current resolution is already at 1920x1080
+and the current refresh rate is already 60hz

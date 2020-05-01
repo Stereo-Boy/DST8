@@ -168,7 +168,7 @@ expe.date={}; %dates of the sessions
 expe.breaks=[]; %for each break, block, trial and duration of the break in sec
 expe.breakTime=10;%time after which there is a small break, in min
 expe.instrPosition=[0,300,400,1100];
-expe.escapeTimeLimit=10; %(min) nb of min after which escape key is deactivated
+expe.escapeTimeLimit=5; %(min) nb of min after which escape key is deactivated
 
 %fusion Test properties
 expe.fusionTestTrialNb1=10;  %nb of trials in diplopia test

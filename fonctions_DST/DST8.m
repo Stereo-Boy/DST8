@@ -146,11 +146,11 @@ cd(fullfile(pathExp,'dataFiles'))
         case {3}
             scr.backgr = stim.maxLum;
     end
-    expe.startTime=GetSecs;
     
     %--------------------- INITIAL STEREOSCOPE MIRROR CALIBRATION DISPLAY(continues after keypress) --------------------------------
     displayStereoscopeCalibration(stim,scr,inputMode);
     waitForKey(scr.keyboardNum,inputMode);
+    expe.startTime=GetSecs;
     %-----------------------------------------------------  
     
     while abort == 1

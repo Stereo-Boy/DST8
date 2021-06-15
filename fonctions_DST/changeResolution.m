@@ -6,23 +6,17 @@ function [success, oldResolution, currentResolution] = changeResolution(screenNu
 % success can be 0 (fail), 1 (success), 2 neutral (did not change
 % resolution but it is actually already correct)
 % Adrien Chopin - oct 2016
-%
-% Usage:
-% at the beginning of the code:
-% oldResolution=Screen('Resolution', screenNumber);
-% changeResolution(screenNumber, goalWidthRes, goalHeightRes, goalRefreshRate);
-% at the end of the code:
-% changeResolution(screenNumber, oldResolution.width, oldResolution.height, oldResolution.hz);
+
 
 
 currentResolution=Screen('Resolution', screenNumber);
+oldResolution = currentResolution;
 
 %checking the resolution
 if currentResolution.width == width && currentResolution.height==height  && currentResolution.hz==hz
        dispi('changeResolution: We will do nothing because the current resolution is already at ',width, 'x',height)
        dispi('and the current refresh rate is already ', hz, 'hz')
        success=2;
-       oldResolution = currentResolution;
 else
     disp(['changeResolution: attempting to change resolution of screen ', num2str(screenNumber), ' to ', num2str(width), 'x', num2str(height)])
     dispi('and the refresh rate to ', hz, 'hz')
